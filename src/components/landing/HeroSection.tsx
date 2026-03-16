@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <div className="container">
         <div className="hero-badge">⚡ WALLET‑RECOVERABLE MEMORY</div>
         <h1 className="hero-title">
-          Your AI, <span className="hero-highlight">Immortal</span>
+          Your immortal personal  AI Assistant , <span className="hero-highlight">that never forgets</span>
         </h1>
         <p className="hero-description">
           PermaClaw is an ultra‑lightweight AI assistant that never forgets.
@@ -17,14 +17,14 @@ const HeroSection: React.FC = () => {
 
         <div className="hero-cta">
           <NavigationButton
-            path="/app"
+            path="/docs"
             variant="premium"
             style={{
               fontSize: '1.2rem',
               padding: '1rem 2.5rem'
             }}
           >
-            Launch App
+            Docs
           </NavigationButton>
           <p className="hero-note">
             No subscriptions • Self‑hostable • Wallet‑recoverable
