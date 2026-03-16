@@ -48,9 +48,8 @@ const Footer: React.FC = () => {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} PermaClaw. Never forget. Recover with wallet.</p>
           <div className="footer-social">
-            <a href="https://github.com/yourname/permaclaw" aria-label="GitHub">🐙</a>
-            <a href="https://twitter.com/permaclaw" aria-label="Twitter">𝕏</a>
-            <a href="https://discord.gg/permaclaw" aria-label="Discord">💬</a>
+            <a href="https://github.com/Ar-Aostore/PermaClaw" aria-label="GitHub">G</a>
+            <a href="https://twitter.com/ar_aostore" aria-label="Twitter">𝕏</a>
             <a href="https://arweave.org" aria-label="Arweave" className="arweave-badge">⛓️ AR</a>
           </div>
         </div>
