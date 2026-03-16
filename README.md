@@ -1,22 +1,21 @@
+# 🦞 PermaClaw Landing Page
 
-```markdown
-# PermaClaw Landing Page
+This repository contains the official landing page for **PermaClaw** – your immortal AI assistant with wallet‑recoverable memory.
 
-This repository contains the **landing page** and **documentation site** for [PermaClaw](https://github.com/yourname/permaclaw) – the immortal AI assistant.
-
-The site is built with **Vite**, **React**, and **Tailwind CSS**. It serves as both a marketing page and a central hub for documentation and community links.
+The site is built with **React**, **TypeScript**, and . It features a responsive design, light/dark theme toggle, and clearly communicates the value of PermaClaw to two main audiences: **biocomputer engineers** and **users seeking their personal AI asistant to have  permanent memory**.
 
 ---
 
 ## ✨ Features
 
-- **Hero section** with animated background (canvas/particles).
-- **Logo carousel** of partners and technologies (Arweave, AO, picoclaw, etc.).
-- **About / use‑cases** split into two main audiences: Biocomputer Engineers & Privacy‑conscious users.
-- **Features grid** with custom icons for permanent memory, aoStore, multi‑channel, tool calling, etc.
-- **Call‑to‑action** to download or build PermaClaw.
-- **Documentation** section linking to the main repo’s README, guides, and API reference.
-- **Responsive** design, mobile‑friendly.
+- **Hero section** with wallet‑recoverable memory badge and key metrics.
+- **Two‑audience cards** explaining benefits for biocomputer engineers and privacy‑conscious users.
+- **How it works** three‑step process (Provide Wallet → Spawn Memory → Chat & Store).
+- **Features grid** with icons for Wallet‑Recoverable, aoStore, Multi‑Channel Chat, Tool Calling, Biocomputing Integration, and Ultra‑Lightweight.
+- **Comparison table** contrasting traditional AI with PermaClaw.
+- **Call‑to‑action** section with links to launch the app and documentation.
+- **Footer** with product links, resources, ecosystem, and social media.
+- **Theme toggle** (light/dark) with persistent user preference.
 
 ---
 
@@ -24,71 +23,62 @@ The site is built with **Vite**, **React**, and **Tailwind CSS**. It serves as b
 
 ### Prerequisites
 - [Node.js 18+](https://nodejs.org/)
-- [Bun](https://bun.sh) (optional, but recommended)
+- [npm](https://npmjs.com/) or [yarn](https://yarnpkg.com/) or [bun](https://bun.sh)
 
-### Install & Run
+### Installation
 ```bash
 git clone https://github.com/yourname/permaclaw-landing.git
 cd permaclaw-landing
-bun install   # or npm install
-bun run dev   # starts dev server at http://localhost:5173
+npm install   # or yarn install / bun install
+Run Development Server
+bash
+npm run dev   # or yarn dev / bun dev
+The site will be available at http://localhost:5173 (default Vite port).
+
 Build for Production
 bash
-bun run build
+npm run build
 # output is in `dist/`
-🗂️ Project Structure
+
+
+
+###  🗂️ Project Structure
 text
 src/
-  components/
-    ├── Hero/
-    ├── About/
-    ├── Features/
-    ├── Logos/
-    └── ...
-  pages/
-    ├── Home.jsx
-    ├── Docs.jsx
-    └── ...
-  assets/
-    ├── icons/          # custom feature icons
-    └── images/
-  styles/
-    └── index.css       # Tailwind imports & custom styles
-public/
-  ├── favicon.ico
-  └── logo.svg
-index.html
-package.json
-vite.config.js
-tailwind.config.js
+├── components/
+│   ├── NavigationsButton.tsx       # Reusable button with navigation
+│   ├── navbar/
+│   │   └── NavBar.tsx              # Navbar with logo and theme toggle
+│   └── sidebar/                     # (not used on landing page)
+├── data/
+│   └── docsData.json                # Documentation content (used in docs page)
+├── pages/
+│   └── home/
+│       ├── Home.tsx                  # Main landing page component
+│       ├── Home.css                   # Landing page styles
+│       └── components/                 # Homepage sub‑components
+│           ├── Navbar.tsx
+│           ├── HeroSection.tsx
+│           ├── UserGroupsSection.tsx
+│           ├── HowItWorksSection.tsx
+│           ├── FeaturesSection.tsx
+│           ├── ComparisonTable.tsx
+│           ├── CTASection.tsx
+│           └── Footer.tsx
+├── services/
+│   └── ThemeProvider.tsx             # Theme context for light/dark mode
+├── App.tsx                            # Main app with routing
+├── main.tsx
+└── index.html
 🎨 Customising the Content
-Text & copy – edit the JSX files in src/components/ or src/pages/.
+All text and links are contained within the React components in src/pages/home/components/. You can edit them directly to update the landing page.
 
-Icons – place custom SVG icons in src/assets/icons/ and import them in the components.
+To change theme colors, modify the CSS variables in src/pages/home/Home.css under the :root and [data-theme="dark"] selectors.
 
-Logo carousel – update the list of logos in src/components/Logos/Logos.jsx.
 
-Animations – the background is implemented in src/components/Hero/BackgroundCanvas.jsx. You can replace it with your own effect.
-
-🌐 Deployment
-The site is designed to be deployed to any static hosting service:
+###  🌐 Deployment
+The site is static and can be deployed to any static hosting service:
 
 Vercel – vercel --prod
-
-Netlify – drag dist/ or connect your Git repo
-
-GitHub Pages – use gh-pages branch and the deploy script
-
-Example deploy script (add to package.json):
-
-json
-"scripts": {
-  "deploy": "bun run build && npx gh-pages -d dist"
-}
-📄 License
-This landing page is also MIT licensed. Feel free to reuse, modify, and adapt.
-
-🙏 Contributing
-Found a typo or want to improve the design? PRs are welcome!
-For major changes, please open an issue first to discuss.
-# PermaClaw-landing-
+### 📄 License
+This landing page is licensed under the MIT License. See LICENSE for details.

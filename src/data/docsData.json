@@ -1,0 +1,67 @@
+{
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "subsections": [
+        {
+          "id": "what-is-permaclaw",
+          "title": "What is PermaClaw?",
+          "content": "<p>PermaClaw is an ultra‑lightweight, self‑hostable AI assistant with <strong>permanent, wallet‑recoverable memory</strong>.</p><p>It combines a minimal Go agent, a rich web UI, a decentralized app store (aoStore), and permanent storage on the AO network.</p><ul><li><strong>Never lose your memories</strong> – all conversations, neuron spike data, and learned facts are stored in your own AO process.</li><li><strong>Recover with just your wallet</strong> – lose your device? Point to your wallet file and everything is back.</li><li><strong>Built‑in app store</strong> – browse and install Devices (skills), DApps, and Projects directly from the AO ecosystem.</li></ul>"
+        },
+        {
+          "id": "installation",
+          "title": "Installation",
+          "content": "<h3>Prerequisites</h3><ul><li>Linux, macOS, or Windows (with WSL)</li><li><a href=\"https://golang.org/dl/\">Go 1.22+</a> (only needed if building from source)</li><li>An Arweave wallet (e.g. <code>aos.json</code> – see <a href=\"https://arweave.org\">arweave.org</a>)</li></ul><h3>Download the Pre‑built Binary</h3><pre><code># Linux (amd64)\ncurl -L https://github.com/yourname/permaclaw/releases/latest/download/permaclaw-linux-amd64 -o permaclaw\nchmod +x permaclaw\n./permaclaw</code></pre><h3>Build from Source</h3><pre><code>git clone https://github.com/yourname/permaclaw.git\ncd permaclaw\nmake build\n./bin/permaclaw</code></pre>"
+        },
+        {
+          "id": "quick-start",
+          "title": "Quick Start",
+          "content": "<p>After running PermaClaw for the first time, open the web UI at <code>http://localhost:18800</code>.</p><ol><li>Go to <strong>Settings</strong> and provide the path to your Arweave wallet (e.g. <code>/home/user/.aos.json</code>).</li><li>Click <strong>Spawn Memory Process</strong> – this creates your permanent AO process and saves its ID in the config.</li><li>Start chatting! Your memories are now automatically saved to your AO process.</li></ol><p>You can also do this via the command line:</p><pre><code>permaclaw spawn-memory --wallet /path/to/wallet.json</code></pre>"
+        }
+      ]
+    },
+    {
+      "id": "normal-users",
+      "title": "For Normal Users",
+      "subsections": [
+        {
+          "id": "getting-started",
+          "title": "Getting Started",
+          "content": "<p>Once your wallet is connected and memory process spawned, you can start using PermaClaw immediately.</p><h3>Basic Commands</h3><ul><li><code>/help</code> – show available commands</li><li><code>/model &lt;name&gt;</code> – switch AI model</li><li><code>/clear</code> – clear conversation history</li></ul><p>You can also ask the agent to perform tasks like web search, file operations, etc.</p>"
+        },
+        {
+          "id": "using-aostore",
+          "title": "Using aoStore & Skills",
+          "content": "<p>The <strong>Store</strong> tab in the web UI lists products from the aoStore process.</p><ul><li><strong>Devices</strong> are installable skills. Click <strong>Install</strong> – the skill package is downloaded from Arweave and placed in your workspace under <code>skills/</code>. The agent can then use it immediately.</li><li><strong>DApps</strong> can be launched in an embedded iframe or external browser.</li><li><strong>Projects</strong> show token and protocol information.</li></ul>"
+        },
+        {
+          "id": "chat-channels",
+          "title": "Chat Channels",
+          "content": "<p>PermaClaw supports multiple chat platforms. Configure them in <code>~/.permaclaw/config.json</code>.</p><pre><code>{\n  \"channels\": {\n    \"telegram\": {\n      \"enabled\": true,\n      \"token\": \"YOUR_BOT_TOKEN\"\n    },\n    \"discord\": {\n      \"enabled\": true,\n      \"token\": \"YOUR_BOT_TOKEN\"\n    }\n  }\n}</code></pre><p>After configuration, run <code>permaclaw</code> and the channels will be active.</p>"
+        }
+      ]
+    },
+    {
+      "id": "biocomputing",
+      "title": "Biocomputing",
+      "subsections": [
+        {
+          "id": "cl1-setup",
+          "title": "CL1 Setup",
+          "content": "<p>PermaClaw includes a built‑in client for streaming CL1 neuron activity to your memory process.</p><h3>Prerequisites</h3><ul><li>CL1 device or CL SDK Simulator installed</li><li>Python 3.8+ with <code>cl-sdk</code> package</li></ul><p>Install the Python SDK:</p><pre><code>pip install cl-sdk</code></pre>"
+        },
+        {
+          "id": "streaming-data",
+          "title": "Streaming Neuron Data",
+          "content": "<p>Example Python script that sends spike data to PermaClaw’s API:</p><pre><code>import requests\nimport time\n\nwhile True:\n    spike = {\n        \"timestamp\": time.time_ns(),\n        \"channel\": 42,\n        \"amplitude\": 1.2\n    }\n    requests.post(\"http://localhost:18800/api/memory/spike\", json=spike)\n    time.sleep(0.1)</code></pre><p>The spike is automatically forwarded to your AO process and becomes part of your permanent memory.</p>"
+        },
+        {
+          "id": "analysis",
+          "title": "Data Analysis",
+          "content": "<p>Later, you can query the memory process via the UI or API to retrieve all recorded spikes for analysis.</p><pre><code>GET /api/memory?from=2025-01-01&to=2025-01-02</code></pre><p>This returns a JSON array of spike events, which you can then process with your own tools.</p>"
+        }
+      ]
+    }
+  ]
+}
